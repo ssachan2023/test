@@ -1,14 +1,23 @@
+<!DOCTYPE html>
 <html>
-            <head>
-                <meta name="mobile-web-app-capable" content="yes">
-            <meta name="google-play-app" content="app-id=com.zeptoconsumerapp">
-                <script>
-                    setTimeout(function() {{
-                        window.location.href = 'https://localhost:99/article/preview?arid=2B729492-6863-4A8C-8ABF-B80653C1B69B';
-                    }}, 2000); // Fallback after 2 seconds
-                </script>
-            </head>
-            <body>
-                Redirecting to app...
-            </body>
-            </html>
+<head>
+    <title>Article</title>
+    <script type="text/javascript">
+        function checkAppInstalled() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            var isAppInstalled = userAgent.includes("com.instagram.android"); // Replace "myappname" with the actual package name of your app
+            var isAppInstalledIN = userAgent.includes("instagram");
+			alert(isAppInstalled);
+			alert('IN'+isAppInstalledIN);
+			if (isAppInstalled) {
+                window.location.href = "myapp://com.instagram.android"; // Redirect to your app with the article
+            } else {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.instagram.android"; // Redirect to app store for download
+            }
+        }
+    </script>
+</head>
+<body onload="checkAppInstalled()">
+    <!-- Display article content here -->
+</body>
+</html>
